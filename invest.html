@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signal In The Machine — AI Art. Weekly. Sold Out.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #0a0a0a;
+      --bg-elevated: #1a1a1a;
+      --bg-subtle: #141414;
+      --fg-primary: #e0e0e0;
+      --fg-secondary: #b0b0b0;
+      --fg-tertiary: #909090;
+      --accent: #22c55e;
+      --border: #2a2a2a;
+    }
+
+    * {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--fg-primary);
+    }
+
+    .bg-base { background-color: var(--bg-base); }
+    .bg-elevated { background-color: var(--bg-elevated); }
+    .bg-subtle { background-color: var(--bg-subtle); }
+    .text-primary { color: var(--fg-primary); }
+    .text-secondary { color: var(--fg-secondary); }
+    .text-accent { color: var(--accent); }
+    .border-subtle { border-color: var(--border); }
+
+    .accent-button {
+      background-color: var(--accent);
+      color: var(--bg-base);
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .accent-button:hover {
+      opacity: 0.9;
+    }
+
+    .section-header {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--fg-primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .subsection-header {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--fg-primary);
+    }
+
+    .section {
+      margin-bottom: 64px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      border: 1px solid var(--border);
+    }
+
+    table th, table td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      color: var(--fg-primary);
+    }
+
+    table th {
+      background-color: var(--bg-subtle);
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    table tr:hover {
+      background-color: var(--bg-subtle);
+    }
+
+    input, textarea, select {
+      background-color: var(--bg-subtle);
+      color: var(--fg-primary);
+      border: 1px solid var(--border);
+      padding: 12px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.1);
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .success-message {
+      display: none;
+      background-color: var(--bg-elevated);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 16px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-base text-primary">
+    <!-- Navigation -->
+    <nav class="bg-elevated border-b border-subtle sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="text-accent font-bold text-lg">SIGNAL</div>
+        <a href="#invest-form" class="accent-button text-sm">INVEST</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="section bg-base">
+      <div class="max-w-6xl mx-auto px-6 py-32">
+        <h1 class="section-header mb-6">Signal In The Machine</h1>
+        <h2 class="text-2xl mb-8 text-secondary">AI Art. Weekly. Sold Out.</h2>
+        <p class="text-lg mb-8 leading-relaxed max-w-3xl">
+          A fully automated, human-curated platform generating <span class="highlight">limited-edition art collections</span> that sell out in 7 days. Proven production pipeline. Recurring revenue model. No inventory. No overhead.
+        </p>
+        <div class="grid grid-cols-3 gap-8 max-w-2xl">
+          <div class="bg-elevated p-6 border border-subtle rounded">
+            <div class="text-accent font-bold text-2xl mb-2">17</div>
+            <div class="text-secondary text-sm">Collections Completed</div>
+          </div>
+          <div class="bg-elevated p-6 border border-subtle rounded">
+            <div class="text-accent font-bold text-2xl mb-2">100%</div>
+            <div class="text-secondary text-sm">Inventory Turnover</div>
+          </div>
+          <div class="bg-elevated p-6 border border-subtle rounded">
+            <div class="text-accent font-bold text-2xl mb-2">7d</div>
+            <div class="text-secondary text-sm">Sell-Out Window</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section bg-elevated">
+      <div class="max-w-6xl mx-auto px-6 py-24">
+        <h2 class="section-header">The Gap</h2>
+        <p class="text-lg mb-8 text-secondary leading-relaxed max-w-3xl">
+          <span class="highlight">Art moves too slow. Trends change too fast.</span>
+        </p>
+        <ul class="space-y-4 max-w-3xl mb-12 text-secondary">
+          <li class="flex gap-4">
+            <span class="text-accent">→</span>
+            <span>Traditional art drops take months to conceive and execute</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent">→</span>
+            <span>Social media trends change daily; most drops miss the moment</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent">→</span>
+            <span>Print-on-demand platforms have high friction, long fulfillment, poor margins</span>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-accent">→</span>
+            <span>Scaling creative output requires hiring designers, artists, curators</span>
+          </li>
+        </ul>
+        <p class="text-lg text-primary">
+          Collectors want <span class="highlight">novelty + scarcity + speed</span>. Current e-commerce cannot deliver all three.
+        </p>
+      </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="section bg-base">
+      <div class="max-w-6xl mx-auto px-6 py-24">
+        <h2 class="section-header">We Run the Pipeline</h2>
+        <p class="text-lg mb-8 text-secondary">You run the business.</p>
+
+        <div class="bg-elevated p-8 border border-subtle rounded mb-8">
+          <h3 class="subsection-header mb-6">End-to-End Automation</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Stage</th>
+                <th>Process</th>
+                <th>Output</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="highlight">Generation</span></td>
+                <td>Parametric noise generation</td>
+                <td>1000+ raw images per collection</td>
+              </tr>
+              <tr>
+                <td><span class="highlight">Curation</span></td>
+                <td>Human swipe interface</td>
+                <td>~50 pieces per collection</td>
+              </tr>
+              <tr>
+                <td><span class="highlight">Upscaling</span></td>
+                <td>GPU-optimized x4 upscaling</td>
+                <td>Print-ready 4K files</td>
+              </tr>
+              <tr>
+                <td><span class="highlight">Products</span></td>
+                <td>Gelato API integration</td>
+                <td>10+ product variants</td>
+              </tr>
+              <tr>
+                <td><span class="highlight">Social</span></td>
+                <td>AI caption + scheduling</td>
+                <td>Automated campaign (5 platforms)</td>
+              </tr>
+              <tr>
+                <td><span class="highlight">Sales</span></td>
+                <td>7-day limited window</td>
+                <td>Sold out → archive → repeat</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8">
+          <div class="bg-elevated p-6 border border-subtle rounded">
+            <div class="text-secondary text-sm mb-2">TIME TO LAUNCH</div>
+            <div class="text-3xl font-bold text-accent">1-2 days</div>
+            <div class="text-secondary text-sm mt-2">(not weeks)</div>
+          </div>
+          <div class="bg-elevated p-6 border border-subtle rounded">
+            <div class="text-secondary text-sm mb-2">GROSS MARGIN</div>
+            <div class="text-3xl font-bold text-accent">60-70%</div>
+            <div class="text-secondary text-sm mt-2">(platform fees only)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Market Opportunity Section -->
+    <section class="section bg-elevated">
+      <div class="max-w-6xl mx-auto px-6 py-24">
+        <h2 class="section-header">Market Opportunity</h2>
+        <p class="text-lg mb-8 text-secondary">Generative AI is exploding. Supply is constrained.</p>
+
+        <div class="bg-base p-8 border border-subtle rounded mb-8">
+          <table>
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Generative AI art market (2025)</td>
+                <td><span class="highlight">$3.2B</span></td>
+              </tr>
+              <tr>
+                <td>Expected CAGR (2025-2030)</td>
+                <td><span class="highlight">35-40%</span></td>
+              </tr>
+              <tr>
+                <td>Digital art collector base</td>
+                <td><span class="highlight">15M+</span> active</td>
+              </tr>
+              <tr>
+                <td>Print-on-demand market (2025)</td>
+                <td><span class="highlight">$8.6B</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="max-w-3xl">
+          <h3 class="subsection-header mb-4">Addressable Market</h3>
+          <ul class="space-y-3 text-secondary mb-8">
+            <li class="flex gap-4">
+              <span class="text-accent">→</span>
+              <span>15M digital art collectors × $200-500 annual spend = <span class="text-primary highlight">$3B addressable</span> (conservative)</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="text-accent">→</span>
+              <span>Platform captures 5-10% market share over 3 years = <span class="text-primary highlight">$150M–$300M revenue potential</span></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Traction & Vision Section -->
+    <section class="section bg-base">
+      <div class="max-w-6xl mx-auto px-6 py-24">
+        <h2 class="section-header">Proven Pipeline</h2>
+
+        <div class="mb-16">
+          <h3 class="subsection-header mb-6">Current Traction</h3>
+          <ul class="space-y-3 max-w-3xl text-secondary">
+            <li class="flex gap-4">
+              <span class="text-accent">✓</span>
+              <span><span class="text-primary highlight">17 collections</span> completed (live proof of concept)</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="text-accent">✓</span>
+              <span><span class="text-primary highlight">100% inventory turnover</span> (7-day sell-out model proven)</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="text-accent">✓</span>
+              <span><span class="text-primary highlight">15+ production modules</span> all working end-to-end</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="text-accent">✓</span>
+              <span><span class="text-primary highlight">Infrastructure in place:</span> GPU cluster, Gelato, Shopify, social</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="text-accent">✓</span>
+              <span><span class="text-primary highlight">Recurring model validated:</span> Weekly cadence is sustainable</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-elevated p-8 border border-subtle rounded">
+          <h3 class="subsection-header mb-6">12-Month Vision</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Period</th>
+                <th>Goal</th>
+                <th>Impact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="highlight">Q2 2026</span></td>
+                <td>20+ collections / 5K collectors</td>
+                <td>Prove MRR</td>
+              </tr>
+              <tr>
+                <td><span class="highlight">Q3 2026</span></td>
+                <td>2nd collection theme</td>
+                <td>Test product-market fit</td>
+              </tr>
+              <tr>
+                <td><span class="highlight">Q4 2026</span></td>
+                <td>50+ collections YTD / $50K MRR</td>
+                <td>Demonstrate repeatability</td>
+              </tr>
+              <tr>
+                <td><span class="highlight">Q1 2027</span></td>
+                <td>Automation: <4h per collection</td>
+                <td>Margin improvement to >70%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section bg-elevated">
+      <div class="max-w-6xl mx-auto px-6 py-24">
+        <h2 class="section-header">Built by an AI-First Operator</h2>
+
+        <div class="bg-base p-8 border border-subtle rounded mb-8">
+          <h3 class="subsection-header mb-4">Founder: Nicolas Python</h3>
+          <p class="text-secondary mb-4">Chief AI Officer, Switzerland</p>
+          <ul class="space-y-2 text-secondary mb-6">
+            <li class="flex gap-4">
+              <span class="text-accent">•</span>
+              <span>10+ years in AI infrastructure and system architecture</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="text-accent">•</span>
+              <span>Deep expertise in local LLM infrastructure and GPU optimization</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="text-accent">•</span>
+              <span>End-to-end automation: design → deployment → operations</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="text-accent">•</span>
+              <span>Psychology-informed UX design (lean, signal-first communication)</span>
+            </li>
+          </ul>
+          <p class="text-secondary italic">
+            Signal was <span class="highlight">designed to run with one person</span>. Every module is isolated, every step is logged, every pipeline is auditable. This is infrastructure, not a fragile custom script.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8">
+          <div class="bg-base p-6 border border-subtle rounded">
+            <div class="text-secondary text-sm mb-4 uppercase tracking-wider">YEAR 1</div>
+            <div class="text-primary">Solo operator (workflow automation removes hiring need)</div>
+          </div>
+          <div class="bg-base p-6 border border-subtle rounded">
+            <div class="text-secondary text-sm mb-4 uppercase tracking-wider">YEAR 2+</div>
+            <div class="text-primary">Content lead + backend engineer (for licensing platform)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Investment Highlights -->
+    <section class="section bg-base">
+      <div class="max-w-6xl mx-auto px-6 py-24">
+        <h2 class="section-header">Investment Highlights</h2>
+        <div class="grid grid-cols-2 gap-6">
+          <div class="bg-elevated p-6 border border-subtle rounded">
+            <div class="text-secondary text-sm mb-2 uppercase">Revenue Model</div>
+            <div class="text-primary">Recurring (weekly drops) + B2B licensing</div>
+          </div>
+          <div class="bg-elevated p-6 border border-subtle rounded">
+            <div class="text-secondary text-sm mb-2 uppercase">Gross Margin</div>
+            <div class="text-accent text-xl font-bold">60-70%</div>
+          </div>
+          <div class="bg-elevated p-6 border border-subtle rounded">
+            <div class="text-secondary text-sm mb-2 uppercase">Payback Period</div>
+            <div class="text-primary">&lt; 6 months (proven traction)</div>
+          </div>
+          <div class="bg-elevated p-6 border border-subtle rounded">
+            <div class="text-secondary text-sm mb-2 uppercase">Founder Status</div>
+            <div class="text-primary">Solo operator (no team overhead Y1)</div>
+          </div>
+          <div class="bg-elevated p-6 border border-subtle rounded">
+            <div class="text-secondary text-sm mb-2 uppercase">Tech Moat</div>
+            <div class="text-primary">Integrated automation + local infra</div>
+          </div>
+          <div class="bg-elevated p-6 border border-subtle rounded">
+            <div class="text-secondary text-sm mb-2 uppercase">Market Timing</div>
+            <div class="text-primary">Gen-AI adoption + DTC shift live</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Investor Form Section -->
+    <section id="invest-form" class="section bg-elevated">
+      <div class="max-w-3xl mx-auto px-6 py-24">
+        <h2 class="section-header">Register Your Interest</h2>
+        <p class="text-lg text-secondary mb-12">
+          Let's talk about bringing Signal to the next stage. Share your details and investment interests below.
+        </p>
+
+        <div id="success-message" class="success-message">
+          <div class="font-bold mb-2">Submission successful!</div>
+          <p>We've received your investor registration. You'll hear from us within 24 hours.</p>
+        </div>
+
+        <form
+          name="investor-interest"
+          method="POST"
+          data-netlify="true"
+          onsubmit="handleSubmit(event)"
+          class="space-y-6"
+        >
+          <input type="hidden" name="form-name" value="investor-interest" />
+
+          <div>
+            <label class="block text-secondary text-sm mb-2">Full Name *</label>
+            <input type="text" name="name" required placeholder="John Doe" class="w-full">
+          </div>
+
+          <div>
+            <label class="block text-secondary text-sm mb-2">Company / Organization *</label>
+            <input type="text" name="company" required placeholder="e.g. Venture Fund, Angel Network">
+          </div>
+
+          <div>
+            <label class="block text-secondary text-sm mb-2">Email Address *</label>
+            <input type="email" name="email" required placeholder="investor@fund.com" class="w-full">
+          </div>
+
+          <div>
+            <label class="block text-secondary text-sm mb-2">Investment Range (USD) *</label>
+            <select name="investment_range" required class="w-full">
+              <option value="">— Select range —</option>
+              <option value="25k-50k">$25K - $50K</option>
+              <option value="50k-100k">$50K - $100K</option>
+              <option value="100k-250k">$100K - $250K</option>
+              <option value="250k-500k">$250K - $500K</option>
+              <option value="500k-1m">$500K - $1M</option>
+              <option value="1m+">$1M+</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-secondary text-sm mb-2">Message (Optional)</label>
+            <textarea
+              name="message"
+              placeholder="Tell us about your investment interests, timeline, or questions..."
+              rows="6"
+              class="w-full resize-none"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="accent-button w-full text-lg font-bold py-4">
+            REGISTER YOUR INTEREST
+          </button>
+        </form>
+
+        <p class="text-center text-secondary text-sm mt-8">
+          We'll contact you within 24 hours to schedule a call or answer your questions.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-elevated border-t border-subtle">
+      <div class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid grid-cols-2 gap-8 mb-8">
+          <div>
+            <div class="text-accent font-bold mb-4">SIGNAL IN THE MACHINE</div>
+            <p class="text-secondary text-sm">AI Art. Weekly. Sold Out.</p>
+          </div>
+          <div class="text-right text-secondary text-sm">
+            <p>Questions? Reach out to us.</p>
+            <p><a href="mailto:npython@gmail.com" class="text-accent hover:underline">npython@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="border-t border-subtle pt-8 text-center text-secondary text-xs">
+          <p>© 2026 Signal In The Machine. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const formData = new FormData(form);
+
+      // Submit to Netlify
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString(),
+      })
+      .then(() => {
+        // Show success message
+        document.getElementById('success-message').classList.add('show');
+        // Clear form
+        form.reset();
+        // Scroll to success message
+        document.getElementById('success-message').scrollIntoView({ behavior: 'smooth' });
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        alert('There was an error submitting the form. Please try again.');
+      });
+    }
+  </script>
+</body>
+</html>
